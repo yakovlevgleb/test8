@@ -368,9 +368,70 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+main {
+  position: relative;
+  width: 1300px;
+  height: 768px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.callback {
+  width: 750px;
+  height: 100%;
+  background: #222629;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 37% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 37% 100%); }
+  .callback__header h1 {
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: 'Grotesk-M';
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 28px; }
+  .callback__header p {
+    color: #ffffff;
+    font-family: 'Grotesk-L';
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 1px; }
+
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding-left: 33px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .navigation__list {
+    list-style: none; }
+  .navigation__item a {
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #222629;
+    font-family: 'Grotesk-M';
+    font-size: 18px;
+    line-height: 41px; }
+
 @font-face {
-  font-family: 'Font-Name';
-  src: url("../fonts/font-name.eot");
-  src: url("../fonts/font-name.eot?#iefix") format("embedded-opentype"), url("../fonts/font-name.woff") format("woff"), url("../fonts/font-name.ttf") format("truetype"), url("../fonts/font-name.svg#font-name") format("svg");
+  font-family: 'Grotesk-M';
+  src: url("../../fonts/HKGrotesk-Medium.otf");
   font-weight: normal;
   font-style: normal; }
+
+@font-face {
+  font-family: 'Grotesk-L';
+  src: url("../../fonts/HKGrotesk-Light.otf"); }

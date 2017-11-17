@@ -1,0 +1,27 @@
+.navigation {
+	display: flex;
+
+	height: 100%;
+	padding-left: 33px;
+
+	flex-flow: column;
+	justify-content: center;
+
+	&__list {
+		list-style: none;
+	}
+
+	&__item {
+		a {
+			text-decoration: none;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+
+			color: #222629;
+
+			font-family: 'Grotesk-M';
+			font-size: 18px;
+			line-height: 41px;
+		}
+	}
+}
