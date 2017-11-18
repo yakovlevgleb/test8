@@ -13,6 +13,13 @@
 
 <body>
   <main class="main">
+    <div class="callback__message callback__message--info">
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae ligula dolor. Ut varius congue</span>
+    </div>
+
+    <div class="callback__message callback__message--error">
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae ligula dolor. Ut varius congue</span>
+    </div>
 
     <nav class="navigation">
       <ul class="navigation__list">
@@ -30,18 +37,103 @@
         <h1>Request a call back</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla similique, animi perferendis veritatis distinctio.</p>
       </div>
-      <form class="" action="index.html" method="post">
-        <label class="placeinput">
-          <input required="1" type="text" id="text" />
-          <div class="place_holder">First Name<span>*</span></div>
+      <form class="callback__form" id="form1" action="index.html" method="post">
+
+        <label class="callback__placeinput callback__placeinput--fname">
+          <input type="text" placeholder=" " required/>
+          <span class="place_holder">First Name<span>*</span></span>
         </label>
+
+        <label class="callback__placeinput callback__placeinput--lname">
+          <input type="text" placeholder=" " required/>
+          <span class="place_holder">Last Name<span>*</span></span>
+        </label>
+        <label class="callback__placeinput callback__placeinput--email">
+          <input type="email" placeholder=" " required/>
+          <span class="place_holder">Email Address<span>*</span></span>
+        </label>
+        <label class="callback__placeinput callback__placeinput--tel">
+          <input type="tel" pattern="[+]{1}[0-9]{1}[0-9]{3}[0-9]{7}" required placeholder=" "/>
+          <span class="place_holder">Telephone<span>*</span></span>
+        </label>
+
+        <div class="callback__select-wrapper">
+          <div class="dropdown-el">
+            <input type="radio" name="sortType" value="Relevance" checked="checked" id="sort-relevance"><label for="sort-relevance">Relevance<span>*</span></label>
+            <input type="radio" name="sortType" value="Popularity" id="sort-best"><label for="sort-best">Product Popularity</label>
+            <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">Price Low to High</label>
+            <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Price High to Low</label>
+            <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">Product Brand</label>
+            <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Product Name</label>
+          </div>
+        </div>
+
+        <textarea class="callback__textarea" placeholder="Message"></textarea>
+
       </form>
+      <button class="callback__submit" type="submit" form="form1" value="Send call back">Send call back</button>
+
     </section>
 
   </main>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $('.dropdown-el').click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).toggleClass('expanded');
+    $('#' + $(e.target).attr('for')).prop('checked', true);
+  });
+  $(document).click(function() {
+    $('.dropdown-el').removeClass('expanded');
+  });
+</script>
 
-<script src="assets/components/jquery/jquery.min.js"></script>
-<script src="assets/js/scripts.min.js"></script>
+<!-- <script type="text/javascript">
+  var getCoords = function(elem) {
+    // (1)
+    var box = elem.getBoundingClientRect();
+
+    var body = document.body;
+    var docEl = document.documentElement;
+
+    // (2)
+    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    // (3)
+    var clientTop = docEl.clientTop || body.clientTop || 0;
+    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    // (4)
+    var top = box.top + scrollTop - clientTop;
+    var left = box.left + scrollLeft - clientLeft;
+
+    return {
+      top: top,
+      left: left
+    };
+  }
+  var form = document.querySelector("form");
+  var messageInfo = document.querySelector(".callback__message--info");
+  var messageError = document.querySelector(".callback__message--error");
+  var WIDTHPOPUP = 253;
+  var HEIGHTPOPUP = 98;
+  form.addEventListener("focus", function(event) {
+    var x = getCoords(event.target).top;
+    var y = getCoords(event.target).left;
+    var widthMoreBody = ((document.documentElement.clientWidth - 1283) > 0) ? (document.documentElement.clientWidth - 1283) : 0;
+    console.log(widthMoreBody);
+    messageInfo.style.display = 'inline';
+    messageInfo.style.top = x - HEIGHTPOPUP - 10 + 'px';
+    messageInfo.style.left = y - widthMoreBody / 2 + 'px';
+  }, true);
+
+  form.addEventListener("focusout", function(event) {
+    messageInfo.style.display = 'none';
+  }, true);
+
+</script> -->
 
 </html>

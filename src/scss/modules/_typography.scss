@@ -1,13 +1,17 @@
 @font-face {
-  font-family: 'Grotesk-M';
-  src: url('../../fonts/HKGrotesk-Medium.otf');
+	font-family: 'Grotesk-M';
+	font-weight: normal;
+	font-style: normal;
 
-  font-weight: normal;
-  font-style: normal;
+	src: url("../../fonts/HKGrotesk-Medium.otf");
 }
-
 @font-face {
-  font-family: 'Grotesk-L';
-  src: url('../../fonts/HKGrotesk-Light.otf');
+	font-family: 'Grotesk-L';
 
+	src: url("../../fonts/HKGrotesk-Light.otf");
+}
+@font-face {
+	font-family: 'Grotesk-B';
+  
+	src: url("../../fonts/HKGrotesk-Bold.otf");
 }

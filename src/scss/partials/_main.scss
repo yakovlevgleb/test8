@@ -1,5 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
 main {
-  position:relative;
+  position: relative;
   width: 1300px;
   height: 768px;
   display: flex;
