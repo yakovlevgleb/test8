@@ -11,9 +11,7 @@
 	padding-top: 218px;
 	padding-right: 47px;
 	padding-left: 145px;
-	background: #222629;
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 37% 100%);
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 37% 100%);
+	background: linear-gradient(70deg, transparent 262px, #222629 263px);
 
 	&__header {
 		h1 {
@@ -35,6 +33,19 @@
 			font-size: 14px;
 			line-height: 21px;
 		}
+	}
+
+	.invalid {
+		border-color: #ff4f00;
+		background-image: url("../../assets/img/error.png");
+		background-repeat: no-repeat;
+		background-position: right center;
+	}
+	.valid{
+			border-color: #8ac53f;
+			background-image: url("../../assets/img/valid.png");
+			background-repeat: no-repeat;
+			background-position: right center;
 	}
 
 	&__form {
@@ -62,24 +73,28 @@
 			&:focus {
 				border-color: #03c1de;
 			}
-
-			&:not(:placeholder-shown):invalid {
+			// &:not(:placeholder-shown):invalid {
+			// 	border-color: #ff4f00;
+			// 	background-image: url("../../assets/img/error.png");
+			// 	background-repeat: no-repeat;
+			// 	background-position: right center;
+			// }
+			.invalid {
 				border-color: #ff4f00;
 				background-image: url("../../assets/img/error.png");
 				background-repeat: no-repeat;
 				background-position: right center;
 			}
-
-			&:invalid .callback__message--error {
-				display: inline;
-			}
-
-			&:valid {
-				border-color: #8ac53f;
-				background-image: url("../../assets/img/valid.png");
-				background-repeat: no-repeat;
-				background-position: right center;
-			}
+			// &:invalid .callback__message--error {
+			// 	display: inline;
+			// }
+			//
+			// &:valid {
+			// 	border-color: #8ac53f;
+			// 	background-image: url("../../assets/img/valid.png");
+			// 	background-repeat: no-repeat;
+			// 	background-position: right center;
+			// }
 		}
 	}
 
@@ -136,58 +151,39 @@
 		width: 499px;
 		margin-bottom: 25px;
 		position: relative;
-		$color: #3694d7;
-		$timing: 0.3s;
-
-		body {
-			text-align: center;
-			background: mix($color,#fff,10%);
-			min-height: 95vh;
-			margin: 0;
-			padding: 0;
-			border-bottom: 5vh solid $color;
-			font-family: "Myriad Pro","Arial",sans;
-			font-size: 24px;
-		}
 
 		.dropdown-el {
-			margin-top: 20vh;
-			min-width: 12em;
+			width: 100%;
 			position: relative;
 			display: inline-block;
-			margin-right: 1em;
 			min-height: 2em;
 			max-height: 2em;
 			overflow: hidden;
 			top: 0.5em;
 			cursor: pointer;
 			text-align: left;
-			white-space: nowrap;
-			color: #444;
-			outline: none;
-			border: 0.06em solid transparent;
-			border-radius: 1em;
-			background-color: mix($color,#fff,25%);
-			transition: $timing all ease-in-out;
+			font-family: 'Grotesk-L';
+			color: rgba(255,255,255,0.6);
+			font-size: 14px;
+			line-height: 26px;
+			border-bottom: 1px solid #ffffff;
+			background-color: transparent;
+			transition: 0.3 all ease-in-out;
 
 			input {
 				display: none;
 			}
 
 			label {
-				border-top: 0.06em solid #d9d9d9;
 				display: block;
 				height: 2em;
-				line-height: 2em;
-				padding-left: 1em;
-				padding-right: 3em;
+				line-height: 26px;
 				cursor: pointer;
 				position: relative;
-				transition: $timing color ease-in-out;
+				transition: 0.3 color ease-in-out;
 
 				&:nth-child(2) {
 					margin-top: 2em;
-					border-top: 0.06em solid #d9d9d9;
 				}
 			}
 
@@ -208,29 +204,25 @@
 				position: absolute;
 				right: 0.8em;
 				top: 0.9em;
-				border: 0.3em solid $color;
-				border-color: $color transparent transparent transparent;
+				border: 0.3em solid #03c1de;
+				border-color: #03c1de transparent transparent transparent;
 				transition: 0.4s all ease-in-out;
 			}
 
 			&.expanded {
-				border: 0.06em solid $color;
-				background: #fff;
-				border-radius: 0.25em;
-				padding: 0;
-				box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0;
+				border: 1px solid #03c1de;
+				background: transparent;
+				padding-left: 18px;
 				max-height: 15em;
 
 				label {
-					border-top: 0.06em solid #d9d9d9;
-
 					&:hover {
-						color: $color;
+						color: #d9d9d9;
 					}
 				}
 
 				input:checked + label {
-					color: $color;
+					color: #d9d9d9;
 				}
 
 				&::after {
@@ -242,8 +234,10 @@
 
 		label {
 			span {
-				font-weight: bold;
-				color: blue;
+				color: #03c1de;
+				font-family: 'Grotesk-B';
+				font-size: 14px;
+				line-height: 26px;
 			}
 		}
 	}
@@ -323,6 +317,10 @@
 			&::before {
 				background-color: #03c1de;
 			}
+			&::after {
+				border: 7px solid transparent;
+				border-top: 7px solid #03c1de;
+			}
 		}
 
 		&--error {
@@ -333,6 +331,7 @@
 			}
 
 			&::after {
+				border: 7px solid transparent;
 				border-top: 7px solid #ff4f00;
 			}
 		}
@@ -361,8 +360,7 @@
 			bottom: -23px;
 			transform: translate(-50%,-50%);
 			left: 50%;
-			border: 7px solid transparent;
-			border-top: 7px solid #03c1de;
+
 		}
 	}
 }
