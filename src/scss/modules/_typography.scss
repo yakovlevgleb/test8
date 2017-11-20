@@ -3,15 +3,21 @@
 	font-weight: normal;
 	font-style: normal;
 
-	src: url("../../fonts/HKGrotesk-Medium.otf");
+	src: local('HKGrotesk-Medium'),
+	url('../../fonts/HKGrotesk-Medium.eot'),
+	url('../../fonts/HKGrotesk-Medium.otf') format("truetype");
 }
 @font-face {
 	font-family: 'Grotesk-L';
 
-	src: url("../../fonts/HKGrotesk-Light.otf");
+	src: local('HKGrotesk-Light'),
+	url('../../fonts/HKGrotesk-Light.eot'),
+	url('../../fonts/HKGrotesk-Light.otf') format("truetype");
 }
 @font-face {
 	font-family: 'Grotesk-B';
-  
-	src: url("../../fonts/HKGrotesk-Bold.otf");
+
+	src: local('HKGrotesk-Bold'),
+	url('../../fonts/HKGrotesk-Bold.eot'),
+	url('../../fonts/HKGrotesk-Bold.otf') format("truetype");
 }

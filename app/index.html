@@ -13,14 +13,6 @@
 
 <body>
   <main class="main">
-    <div class="callback__message callback__message--info">
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae ligula dolor. Ut varius congue</span>
-    </div>
-
-    <div class="callback__message callback__message--error">
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae ligula dolor. Ut varius congue</span>
-    </div>
-
     <nav class="navigation">
       <ul class="navigation__list">
         <li class="navigation__item"><a href="#">Why hyve</a></li>
@@ -39,23 +31,25 @@
       </div>
       <form class="callback__form" id="form1" action="index.html" method="post" onsubmit="return validateForm(this)">
 
-        <label class="callback__placeinput callback__placeinput--fname">
-          <input type="text" class="name-input" placeholder=" "/>
+        <div class="callback__inputs">
+          <label class="callback__placeinput callback__placeinput--fname">
+          <input type="text" class="name-input"/>
           <span class="place_holder">First Name<span>*</span></span>
         </label>
 
-        <label class="callback__placeinput callback__placeinput--lname">
+          <label class="callback__placeinput callback__placeinput--lname">
           <input type="text" placeholder=" "/>
           <span class="place_holder">Last Name<span>*</span></span>
         </label>
-        <label class="callback__placeinput callback__placeinput--email">
+          <label class="callback__placeinput callback__placeinput--email">
           <input type="text" class="mail-input" placeholder=" "/>
           <span class="place_holder">Email Address<span>*</span></span>
         </label>
-        <label class="callback__placeinput callback__placeinput--tel">
+          <label class="callback__placeinput callback__placeinput--tel">
           <input type="text" class="phone-input" placeholder=" ">
           <span class="place_holder">Telephone<span>*</span></span>
         </label>
+        </div>
 
         <div class="callback__select-wrapper">
           <div class="dropdown-el">
@@ -74,152 +68,17 @@
 
     </section>
 
+    <div class="callback__message callback__message--info">
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae ligula dolor. Ut varius congue</span>
+    </div>
+
+    <div class="callback__message callback__message--error">
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae ligula dolor. Ut varius congue</span>
+    </div>
+
   </main>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-  var getCoords = function(elem) {
-    // (1)
-    var box = elem.getBoundingClientRect();
-
-    var body = document.body;
-    var docEl = document.documentElement;
-
-    // (2)
-    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-
-    // (3)
-    var clientTop = docEl.clientTop || body.clientTop || 0;
-    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-
-    // (4)
-    var top = box.top + scrollTop - clientTop;
-    var left = box.left + scrollLeft - clientLeft;
-
-    return {
-      top: top,
-      left: left
-    };
-  }
-  var form = document.querySelector("form");
-  var messageInfo = document.querySelector(".callback__message--info");
-  var messageError = document.querySelector(".callback__message--error");
-  var WIDTHPOPUP = 253;
-  var HEIGHTPOPUP = 98;
-
-
-
-
-
-  var popupShow = function(popup, element) {
-    var x = getCoords(element).top;
-    var y = getCoords(element).left;
-    var widthMoreBody = ((document.documentElement.clientWidth - 1283) > 0) ? (document.documentElement.clientWidth - 1283) : 0;
-    popup.style.display = 'inline';
-    popup.style.top = x - HEIGHTPOPUP - 10 + 'px';
-    popup.style.left = y - widthMoreBody / 2 + 'px';
-  };
-
-  var popupHide = function(popup) {
-    popup.style.display = 'none';
-  };
-
-  form.addEventListener('focus', function(event) {
-    popupShow(messageInfo, event.target);
-  }, true);
-
-  form.addEventListener('focusout', function() {
-    popupHide(messageInfo);
-  }, true);
-
-  $('.dropdown-el').click(function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).toggleClass('expanded');
-    $('#' + $(e.target).attr('for')).prop('checked', true);
-  });
-  $(document).click(function() {
-    $('.dropdown-el').removeClass('expanded');
-  });
-
-  function validName() {
-    var re = /^[a-zA-Zа-яёА-ЯЁ\s\-]+$/;
-    var myName = document.querySelector('.name-input');
-    var validName = re.test(myName.value);
-    if (!validName) {
-      $('.name-input').addClass('invalid');
-      $('.name-input').removeClass('valid');
-      myName.onfocus = popupHide(messageInfo);
-      myName.oninput = popupShow(messageError, myName);
-      return false;
-    } else {
-      $('.name-input').removeClass('invalid');
-      $('.name-input').addClass('valid');
-      myName.oninput = popupHide(messageError);
-      return true;
-    }
-  };
-
-  function validMail() {
-    var re = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
-    var myMail = document.querySelector('.mail-input');
-    var validMail = re.test(myMail.value);
-    if (!validMail) {
-      $(".mail-input").addClass('invalid');
-      $(".mail-input").removeClass('valid');
-      myMail.onfocus = popupHide(messageInfo);
-      myMail.oninput = popupShow(messageError, myMail);
-      return false;
-    } else {
-      $(".mail-input").removeClass('invalid');
-      $(".mail-input").addClass('valid');
-      myMail.oninput = popupHide(messageError);
-      return true;
-    }
-  };
-
-  function validPhone() {
-    var re = /^\d[\d\(\)\ -]{4,14}\d$/;
-    var myPhone = document.querySelector('.phone-input');
-    var validPhone = re.test(myPhone.value);
-    if (!validPhone) {
-      $(".phone-input").addClass('invalid');
-      $(".phone-input").removeClass('valid');
-      myPhone.onfocus = popupHide(messageInfo);
-      myPhone.oninput = popupShow(messageError, myPhone);
-      return false;
-    } else {
-      $(".phone-input").removeClass('invalid');
-      $(".phone-input").addClass('valid');
-      myPhone.oninput = popupHide(messageError);
-      return true;
-    }
-  };
-
-  document.querySelector('.callback__submit').addEventListener('click', function() {
-    validName();
-    validPhone();
-    validMail();
-  })
-  document.querySelector('.name-input').addEventListener('input', function() {
-    validName();
-  })
-  document.querySelector('.mail-input').addEventListener('input', function() {
-    validMail();
-  })
-  document.querySelector('.phone-input').addEventListener('input', function() {
-    validPhone();
-  })
-
-  function validateForm() {
-    if (validPhone() && validName() && validMail()) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-</script>
+<script src="assets/js/scripts.min.js"></script>
 
 </html>

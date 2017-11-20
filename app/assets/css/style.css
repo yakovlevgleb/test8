@@ -432,48 +432,40 @@ main {
     background-image: url("../../assets/img/valid.png");
     background-repeat: no-repeat;
     background-position: right center; }
+  .callback input::-ms-clear {
+    display: none; }
   .callback__form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end; }
+    max-width: 535px;
+    float: right;
+    text-align: right; }
     .callback__form input {
       width: 100%;
       margin-bottom: 15px;
       color: rgba(255, 255, 255, 0.6);
       border: none;
       border-bottom: 1px solid #ffffff;
-      background-color: inherit;
+      background-color: transparent;
       font-family: 'Grotesk-L';
       font-size: 14px;
       line-height: 26px;
       position: relative; }
       .callback__form input:focus {
         border-color: #03c1de; }
-      .callback__form input .invalid {
-        border-color: #ff4f00;
-        background-image: url("../../assets/img/error.png");
-        background-repeat: no-repeat;
-        background-position: right center; }
   .callback__placeinput {
+    display: inline-block;
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    text-align: left; }
     .callback__placeinput--fname {
       width: 222px; }
     .callback__placeinput--lname {
       width: 290px;
-      margin-left: 20px; }
+      margin-left: 15px; }
     .callback__placeinput--email {
       width: 222px; }
     .callback__placeinput--tel {
       width: 272px;
       margin-left: 20px; }
-    .callback__placeinput input:not(:placeholder-shown) + .place_holder {
-      display: none; }
   .callback .place_holder {
     position: absolute;
     z-index: 1;
@@ -493,11 +485,11 @@ main {
       font-size: 14px;
       line-height: 26px; }
   .callback__select-wrapper {
-    width: 499px;
+    height: 32px;
     margin-bottom: 25px;
     position: relative; }
     .callback__select-wrapper .dropdown-el {
-      width: 100%;
+      width: 499px;
       position: relative;
       display: inline-block;
       min-height: 2em;
@@ -548,17 +540,20 @@ main {
         transition: 0.4s all ease-in-out; }
       .callback__select-wrapper .dropdown-el.expanded {
         border: 1px solid #03c1de;
-        background: transparent;
-        padding-left: 18px;
-        max-height: 15em; }
+        background: #fff;
+        max-height: 15em;
+        position: absolute;
+        color: #d9d9d9;
+        left: 35px;
+        z-index: 1; }
         .callback__select-wrapper .dropdown-el.expanded label:hover {
-          color: #d9d9d9; }
+          color: #000; }
         .callback__select-wrapper .dropdown-el.expanded input:checked + label {
           color: #d9d9d9; }
         .callback__select-wrapper .dropdown-el.expanded::after {
           -webkit-transform: rotate(-180deg);
-              -ms-transform: rotate(-180deg);
-                  transform: rotate(-180deg);
+          -ms-transform: rotate(-180deg);
+              transform: rotate(-180deg);
           top: 0.55em; }
     .callback__select-wrapper label span {
       color: #03c1de;
@@ -573,7 +568,7 @@ main {
     color: rgba(255, 255, 255, 0.8);
     border: none;
     border-bottom: 1px solid #ffffff;
-    background-color: inherit;
+    background-color: transparent;
     font-family: 'Grotesk-L';
     font-size: 14px;
     margin-bottom: 18px; }
@@ -606,7 +601,7 @@ main {
     text-transform: uppercase;
     color: #03c1de;
     border: none;
-    background-color: inherit;
+    background-color: transparent;
     font-family: 'Grotesk-B';
     font-size: 14px;
     line-height: 53px;
@@ -652,8 +647,8 @@ main {
       position: absolute;
       bottom: -23px;
       -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
       left: 50%; }
 
 .navigation {
@@ -684,12 +679,12 @@ main {
   font-family: 'Grotesk-M';
   font-weight: normal;
   font-style: normal;
-  src: url("../../fonts/HKGrotesk-Medium.otf"); }
+  src: local("HKGrotesk-Medium"), url("../../fonts/HKGrotesk-Medium.eot"), url("../../fonts/HKGrotesk-Medium.otf") format("truetype"); }
 
 @font-face {
   font-family: 'Grotesk-L';
-  src: url("../../fonts/HKGrotesk-Light.otf"); }
+  src: local("HKGrotesk-Light"), url("../../fonts/HKGrotesk-Light.eot"), url("../../fonts/HKGrotesk-Light.otf") format("truetype"); }
 
 @font-face {
   font-family: 'Grotesk-B';
-  src: url("../../fonts/HKGrotesk-Bold.otf"); }
+  src: local("HKGrotesk-Bold"), url("../../fonts/HKGrotesk-Bold.eot"), url("../../fonts/HKGrotesk-Bold.otf") format("truetype"); }
